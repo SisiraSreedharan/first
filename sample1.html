@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>table</title>
+	
+
+</head>
+<body>
+
+	<div class="container">
+		<p><br></p>
+		<form name="invoice" method="post">
+			<table border="1" name="invoice" id="myTable"class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th rowspan="4">Qty</th>
+				<th rowspan="4">Price</th>
+				<th rowspan="4">Tax(%)</th>
+				<th rowspan="8">Amount</th>
+				<th rowspan="4">Tax_amount</th>
+				<th rowspan="4">Total_amount</th>
+				
+			</tr>
+			
+		</thead>
+	
+			<tbody>
+				<tr name="line_items">
+					<td><input type="text" id="qty"></td>
+					<td><input type="text" id="price"></td>
+					<td><input type="text" id="tax"></td>
+					
+					
+
+                        <td>
+                        	<p id="amnt"></p>
+                        </td>
+                        <td>
+                        	<p id="taxamnt"></p>
+                        </td>
+                        <td>
+                        	<p id="demo">
+                        	</td>
+				
+						<tr>
+							<td colspan="6">
+								<button onClick="myFunction()"/>calculate</button>
+								<button type="button" onclick="myFunctionadd()">Add</button>
+								
+							</td>
+						</tr>
+					</tbody>
+				 </table>
+
+              </form>
+          </div>
+	
+<script>
+          function myFunction()
+           {
+           	var v1 = document.getElementsById("qty").value;
+           	var v2 = document.getElementsById("price").value;
+            var v3 = document.getElementsById("tax").value;
+            var a = v1 * v3;
+            var b = (a * v3) / 100;
+             
+         document.getElementsById("amnt").innerHTML = a;
+         document.getElementsById("taxamnt").innerHTML = (a * v3) / 100;
+         document.getElementsById("demo").innerHTML = a + b;
+     }
+   
+          function myFunctionadd() {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";
+  cell3.innerHTML = "NEW CELL3";
+  cell4.innerHTML = "NEW CELL4";
+  cell5.innerHTML = "NEW CELL5";
+  cell6.innerHTML = "NEW CELL6";
+
+
+
+
+}
+
+	</script>
+
+	</body>
+	</html>
+
