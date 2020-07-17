@@ -13,12 +13,12 @@
 			<table border="1" name="invoice" id="myTable"class="table table-bordered table-striped">
 		<thead>
 			<tr>
-				<th rowspan="4">Qty</th>
-				<th rowspan="4">Price</th>
-				<th rowspan="4">Tax(%)</th>
-				<th rowspan="8">Amount</th>
-				<th rowspan="4">Tax_amount</th>
-				<th rowspan="4">Total_amount</th>
+				<th>Qty</th>
+				<th>Price</th>
+				<th>Tax(%)</th>
+				<th>Amount</th>
+				<th>Tax_amount</th>
+				<th>Total_amount</th>
 				
 			</tr>
 			
@@ -44,8 +44,8 @@
 				
 						<tr>
 							<td colspan="6">
-								<button onClick="myFunction()"/>calculate</button>
-								<button type="button" onclick="myFunctionadd()">Add</button>
+								<button type = "button" onClick="myFunction()"/>calculate</button>
+								<button type = "button" onclick="myFunctionadd()">Add</button>
 								
 							</td>
 						</tr>
@@ -58,15 +58,15 @@
 <script>
           function myFunction()
            {
-           	var v1 = document.getElementsById("qty").value;
-           	var v2 = document.getElementsById("price").value;
-            var v3 = document.getElementsById("tax").value;
-            var a = v1 * v3;
+           	var v1 = document.getElementById("qty").value;
+           	var v2 = document.getElementById("price").value;
+            var v3 = document.getElementById("tax").value;
+            var a = v1 * v2;
             var b = (a * v3) / 100;
              
-         document.getElementsById("amnt").innerHTML = a;
-         document.getElementsById("taxamnt").innerHTML = (a * v3) / 100;
-         document.getElementsById("demo").innerHTML = a + b;
+         document.getElementById("amnt").innerHTML = a;
+         document.getElementById("taxamnt").innerHTML = (a * v3) / 100;
+         document.getElementById("demo").innerHTML = a + b;
      }
    
           function myFunctionadd() {
