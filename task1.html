@@ -18,7 +18,7 @@
 				<th>Amount</th>
 				<th>Tax_amount</th>
 				<th>Total_amount</th>
-				<th>Operations</th>
+				<th colspan="2">Operations</th>
 				
 			</tr>
 			
@@ -43,6 +43,7 @@
                         	</td>
 
                         <td><button type = "button" onClick="myFunction()"/>calculate</button></td>	
+                        <td><button type = "button" onclick="deleteFunction()">Remove</button></td>
                    </tr>  
 			</tbody>
 		</table>
@@ -74,30 +75,49 @@
   var cell4 = row.insertCell(4);
   var cell5 = row.insertCell(5);
   var cell6 = row.insertCell(6);
+  var cell7 = row.insertCell(7);
   cell0.innerHTML = "<input type='text' id='qty' class='qty'  style='border: none;'>";
   cell1.innerHTML = "<input type='text' id='price' class='price' style='border: none;' >";
   cell2.innerHTML = "<input type='text' id='tax' class='tax' style='border: none;'>";
   cell3.innerHTML = "<p id='amnt' class='amnt'></p>";
   cell4.innerHTML = "<p id='taxamnt' class='taxamnt'></p>";
   cell5.innerHTML = "<p id='demo' class='demo'></p>";
-  cell6.innerHTML = "<button class='calc'>calculate</button>";
+  cell6.innerHTML = "<button type='button' class='calc'>calculate</button>";
+  cell7.innerHTML = "<button type='button' class='del'>Remove</button>";
 
 	$(".calc").click(function() {
 
-            var v1 = $(this).parent('tr').find(".qty").val();
-            var v2 = $(this).parent('tr').find(".price").val();
-            var v3 = $(this).parent('tr').find(".tax").val();
+            var v1 = $(this).closest("tr").find(".qty").val();
+            var v2 = $(this).closest("tr").find(".price").val();
+            var v3 = $(this).closest("tr").find(".tax").val();
             var a = v1 * v2;
-            var b = (a* v3) / 100;
-            var s = $(this).parent('tr').find(".amnt").html(a);
-            $(this).parents('tr').find(".taxamt").html(b);
-            $(this).parents('tr').find(".demo").html(a + b);
+            var b = (a * v3) / 100;
+            var s = $(this).closest("tr").find(".amnt").html(a);
+            $(this).closest("tr").find(".taxamnt").html(b);
+            $(this).closest("tr").find(".demo").html(a + b);
         });
-}
 
+    $(".del").on("click", function(event){
+        var $this = $(this);
+        // var c = confirm('Are you sure to delete this message?');
+        //    if(c) {
+            $this.closest("tr").fadeOut(function(){
+            $this.remove();
+           });
+        // }
+        return false;
+});
+        
+ }
+ function deleteFunction() {
 
-
+ 	    document.getElementById("mytable").deleteRow(1);
+ 	  
+          }
 </script>
+
+
+
 
 
 	</body>
